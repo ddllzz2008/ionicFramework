@@ -1,0 +1,42 @@
+<ion-view view-title="司机状态">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="mainrequest_header">
+      <div class="row">
+        <div id="myrequestdriver_seg1" class="col col-33 {{headercss.css1}}" ng-click="segementChange(0)">空闲中</div>
+        <div id="myrequestdriver_seg2" class="col col-33 {{headercss.css2}}" ng-click="segementChange(1)">待命中</div>
+        <div id="myrequestdriver_seg3" class="col col-33 {{headercss.css3}}" ng-click="segementChange(2)">出车中</div>
+      </div>
+      <div id="myrequestdriver_seg" class="mainrequest_seg {{headercss.position}}"></div>
+    </div>
+
+    <ion-scroll style="display:block;overflow-y: auto;height:calc(100% - (49px));">
+
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+      <div class="mainrequestcar_itemrow" ng-repeat="item in items">
+        <div class="left">
+          <div class="carimg" style="background-color: transparent">
+            <img src="img/main_morephoto@2x.png" width="35px">
+          </div>
+        </div>
+        <div class="right">
+          <div class="row1">{{item.Driver_Name}}</div>
+          <div class="row2">{{item.Driver_Desc}}   {{item.Driving_Liscense_Type}}</div>
+          <div class="location">
+            <a href="tel:{{item.Mobile_Phone}}"><img src="img/main_moretel@2x.png" width="35px"></a>
+          </div>
+          <div class="location1">
+            <img src="img/main_moremessage@2x.png" width="35px">
+          </div>
+        </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

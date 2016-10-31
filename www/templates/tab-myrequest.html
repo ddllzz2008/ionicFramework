@@ -1,0 +1,66 @@
+<ion-view title="调度派车">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right" ng-click="gotoMessage()">
+      <button class="button button-icon icon ion-email"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="myrequest_header" ui-sref="myrequestwait">
+      <div id="myrequest_circle">{{numberfordispatchers}}</div>
+      <div id="myrequest_title">等待调度</div>
+    </div>
+
+      <ion-slide-box active-slide="myActiveSlide" class="myrequest_content">
+        <ion-slide>
+          <div id="myreqeuest_bottom1" class="myreqeuest_bottom" ng-click="gotoVhicles(0)">
+            <div class="info_number">{{vehicles.rate}}</div>
+            <div class="info_title">上线率</div>
+          </div>
+          <div class="myrequest_info leftup" ng-click="gotoVhicles(0)">
+            <div class="info_title">车辆总数</div>
+            <div class="info_number">{{vehicles.total}}</div>
+          </div>
+          <div class="myrequest_info rightup" ng-click="gotoVhicles(1)">
+            <div class="info_title">待命</div>
+            <div class="info_number">{{vehicles.wait}}</div>
+          </div>
+          <div class="myrequest_info leftbottom" ng-click="gotoVhicles(0)">
+            <div class="info_title">空闲</div>
+            <div class="info_number">{{vehicles.free}}</div>
+          </div>
+          <div class="myrequest_info rightbottom" ng-click="gotoVhicles(2)">
+            <div class="info_title">运行</div>
+            <div class="info_number">{{vehicles.run}}</div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div id="myreqeuest_bottom2" class="myreqeuest_bottom" ng-click="gotoDrivers(0)">
+            <div class="info_number">{{drivers.rate}}</div>
+            <div class="info_title">上线率</div>
+          </div>
+          <div class="myrequest_info leftup" ng-click="gotoDrivers(0)">
+            <div class="info_title">司机总数</div>
+            <div class="info_number">{{drivers.total}}</div>
+          </div>
+          <div class="myrequest_info rightup" ng-click="gotoDrivers(1)">
+            <div class="info_title">待命</div>
+            <div class="info_number">{{drivers.wait}}</div>
+          </div>
+          <div class="myrequest_info leftbottom" ng-click="gotoDrivers(0)">
+            <div class="info_title">空闲</div>
+            <div class="info_number">{{drivers.free}}</div>
+          </div>
+          <div class="myrequest_info rightbottom" ng-click="gotoDrivers(2)">
+            <div class="info_title">出车</div>
+            <div class="info_number">{{drivers.run}}</div>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+  </ion-content>
+
+</ion-view>

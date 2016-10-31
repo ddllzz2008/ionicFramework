@@ -1,0 +1,46 @@
+<ion-view view-title="关于和帮助">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content style="background-color:#eeeeee;">
+    <div style="background-color:#eeeeee;width: 100%;padding: 20px 0 20px 0;">
+      <div class="row" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:start;
+                                    display:box;
+                                    box-pack:center;
+                                    box-align:start;">
+        <img src="img/banner_icon.png" width="90px">
+      </div>
+      <div class="row" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:start;
+                                    display:box;
+                                    box-pack:center;
+                                    box-align:start;color: #91a2bc;font-size: 16px; margin-top: 10px;">
+        智慧公车
+      </div>
+      <div class="row" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:start;
+                                    display:box;
+                                    box-pack:center;
+                                    box-align:start;color: #91a2bc;font-size: 11px; margin-top: 5px;">
+        V1.6.0(PRD)
+      </div>
+    </div>
+    <div class="list">
+      <a class="item item-icon-right" ng-click="gotoComment()">
+        <label style="color: #000;">给个评价</label>
+        <i class="icon menu_right_forward"><img src="img/icon_forward@2x.png" height="15px" item-right></i>
+      </a>
+      <a class="item item-icon-right" ng-click="gotoHelp()">
+        <label style="color: #000;">帮助</label>
+        <i class="icon menu_right_forward"><img src="img/icon_forward@2x.png" height="15px" item-right></i>
+      </a>
+    </div>
+
+    <div id="helpWebview" style="background-color: #ffffff;overflow: hidden;display: none;height:0px;width: 100%;position: absolute;z-index: 9999;left: 0;top: 0;">
+      <iframe src="http://wisdomcar.cn/staticviews/help.html" width="100%" height="100%"></iframe>
+    </div>
+
+  </ion-content>
+</ion-view>

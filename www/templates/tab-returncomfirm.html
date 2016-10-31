@@ -1,0 +1,35 @@
+<ion-view view-title="交车确认">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scroll="true" style="overflow: auto;">
+    <div class="css_audit_item">
+      <div class="css_audit_header">
+        <label>订单编号:{{item.ApplyCode}}</label><img src="img/audit_in.png">
+      </div>
+      <div class="returncomfirm_content">
+        <label>车牌号: {{item.drivers}}</label>
+        <br>
+        <label>驾驶员: {{item.cars}}</label>
+        <br>
+        <label>出场里程(公里): {{item.DefaultKilometers}}</label>
+        <br>
+        <label>状态: 申请交车</label>
+        <br>
+        <label>回场里程(公里): </label><input class="input1" type="tel" ng-model="form.backkilometers">
+        <br>
+        <label>用车备注:</label>
+        <br>
+        <input class="input2" type="text" ng-model="form.remark">
+      </div>
+      <button class="input_button button button-block button-positive"
+              style="width: 80%;margin-left: 10%;margin-top: 30px;" ng-click="saveReturn()">
+        确认交车
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

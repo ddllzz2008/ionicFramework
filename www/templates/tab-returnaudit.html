@@ -1,0 +1,126 @@
+<ion-view title="交车审核">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right" ng-click="gotoMessage()">
+      <button class="button button-icon icon ion-email"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="audit_header">
+      <div class="row">
+        <div class="col col-50 {{css_selected}}" ng-click="segementChange(0)">等待审核({{itemscount0}})</div>
+        <div class="col col-50 {{css_unselected}}" ng-click="segementChange(1)">已经审核({{itemscount1}})</div>
+      </div>
+      <div id="audit_seg" class="{{css_animation}}"></div>
+    </div>
+    <ion-scroll id="returnaudit_content" style="display:block;height:calc(100% - (49px));">
+
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+      <div class="css_audit_item" ng-repeat="item in items1">
+        <div class="css_audit_header">
+          <label>订单编号:{{item.ApplyCode}}</label><img src="{{item.rangeimage}}">
+        </div>
+        <div class="css_audit_row">
+          <div class="css_audit_col1">
+            <label>{{item.UsageTime|dateConvert}}</label>
+            <br/>
+            <label class="css_audit_middlelabel">{{item.Duration}}</label>
+            <br/>
+            <label>{{item.ReturnTime|dateConvert}}</label>
+          </div>
+          <div class="css_audit_col2">
+            <div class="list" style="text-align:left;background-color: transparent;width:100%">
+              <label class="item item-input" style="border: 0;background-color: transparent;">
+                <img src="img/main_positionstart@2x.png" width="18px">
+                <label>{{item.GetOnAddress}}</label>
+              </label>
+              <label class="item item-input" style="border: 0;margin-top: 10px">
+                <img src="img/main_positionend@2x.png" width="18px">
+                <label>{{item.GetOffAddress}}</label>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="css_audit_row" style="height: 165px">
+          <div class="css_audit_col">
+            <label>派车信息:{{item.driverandcar}}</label>
+            <br/>
+            <label>交车申请时间:{{item.ReturnApplyTime}}</label>
+            <br/>
+            <label>用车事由:{{item.Reason}}</label>
+            <br/>
+            <label>乘车人:{{item.Applicant}} {{item.DepartmentName}}</label>
+            <br/>
+            <label>乘车人数:{{item.PassengersNumber}}</label>
+            <br/>
+            <label>备注:{{item.Remarks}}</label>
+          </div>
+          <div class="col">
+            <a href="tel:{{item.ApplicantPhone}}"><img class="css_audit_img" src="img/main_moretel@2x.png" style="margin-right: 15px;"></a>
+          </div>
+        </div>
+        <div class="row css_audit_opr">
+          <button class="button button-small btnprocess" ng-click="gotoComfirm({{item.Id}})">
+            交车
+          </button>
+        </div>
+      </div>
+    </ion-scroll>
+    <ion-scroll id="returnaudit_contentprocess" style="display:none;height:calc(100% - (49px));">
+
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+      <div class="css_audit_item" ng-repeat="item in items2">
+        <div class="css_audit_header">
+          <label>订单编号:{{item.ApplyCode}}</label><img src="{{item.rangeimage}}">
+        </div>
+        <div class="css_audit_row">
+          <div class="css_audit_col1">
+            <label>{{item.UsageTime|dateConvert}}</label>
+            <br/>
+            <label class="css_audit_middlelabel">{{item.Duration}}</label>
+            <br/>
+            <label>{{item.ReturnTime|dateConvert}}</label>
+          </div>
+          <div class="css_audit_col2">
+            <div class="list" style="text-align:left;background-color: transparent;width:100%">
+              <label class="item item-input" style="border: 0;background-color: transparent;">
+                <img src="img/main_positionstart@2x.png" width="18px">
+                <label>{{item.GetOnAddress}}</label>
+              </label>
+              <label class="item item-input" style="border: 0;margin-top: 10px">
+                <img src="img/main_positionend@2x.png" width="18px">
+                <label>{{item.GetOffAddress}}</label>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="css_audit_row" style="height: 165px">
+          <div class="css_audit_col">
+            <label>派车信息:{{item.driverandcar}}</label>
+            <br/>
+            <label>交车申请时间:{{item.ReturnApplyTime}}</label>
+            <br/>
+            <label>用车事由:{{item.Reason}}</label>
+            <br/>
+            <label>乘车人:{{item.Applicant}} {{item.DepartmentName}}</label>
+            <br/>
+            <label>乘车人数:{{item.PassengersNumber}}</label>
+            <br/>
+            <label>备注:{{item.Remarks}}</label>
+          </div>
+          <div class="col">
+            <a href="tel:{{item.ApplicantPhone}}"><img class="css_audit_img" src="img/main_moretel@2x.png" style="margin-right: 15px;"></a>
+          </div>
+        </div>
+      </div>
+    </ion-scroll>
+
+  </ion-content>
+
+</ion-view>

@@ -1,0 +1,91 @@
+@import "commoncfg";
+
+#mainprocess_header{
+  background-color: $color_white_01;
+  width: 100%;
+  height: 75px;
+  border-bottom: solid 1px $color_gray_05;
+
+  .normal{
+    color:$color_font_06;
+    font-size: $fontsize_12;
+    margin: auto auto;
+  }
+
+  .selected{
+    color:$color_font_07;
+    font-size: $fontsize_12;
+    margin: auto auto;
+  }
+
+  .mark_div{
+    width: 100%;height:20px;position:absolute;z-index: 2;top:8px;
+
+    .mark{
+      margin-left: 51%;
+      margin-top:-10px;
+      color:$color_font_02;
+      font-size:$fontsize_10;
+      background-color: $color_red_01;
+      width:14px;
+      height:14px;
+      line-height: 10px;
+      border-radius: 7px;
+
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+      /* W3C */
+      display:box;
+      box-pack:center;
+      box-align:center;
+    }
+  }
+}
+
+#mainprocess_time{
+  position: relative;left: 12px;width:95%;height:25px;
+
+  .time_des{
+    float: right;
+    margin-right: calc(30% - (40px));
+    color: $color_font_03;
+    font-size: $fontsize_13;
+    border: solid 1px $color_blue_03;
+    border-radius: 5px;
+    background-color: $color_white_01;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+    height: 100%;
+    text-overflow:ellipsis;overflow:hidden;white-space:nowrap;word-break:keep-all;
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+  }
+
+  .time_img{
+    float:right;height: 12px;
+    vertical-align: top;
+    margin-top: 7px;
+    margin-right: -0.5px;
+    z-index: 2;
+  }
+}

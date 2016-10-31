@@ -1,0 +1,112 @@
+<ion-view>
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <!--android-->
+    <!--<ion-scroll style="display:block;height:100%;overflow: hidden" scroll="false">-->
+    <div id="login_panel">
+      <label class="label_loginpassword" ng-click="changeLogin(1)">密码登录</label>
+      <label class="label_logincode" ng-click="changeLogin(0)">验证码登录</label>
+      <img id="pointimg" #pointimg class="{{css_imgPoint}}" src="img/banner_sqare.png">
+      <img id="login_banner" class="login_banner" src="img/banner_icon.png">
+    </div>
+
+    <div id="input_panel" class="{{css_ispasswordlogin}}">
+
+      <div class="list" style="position: relative;top: 20px;text-align:center;">
+        <label class="item item-input input_list_item">
+          <img src="img/icon_username.png" class="input_icon">
+          <input type="text" placeholder="用户名" class="input_form" ng-model="txtusername.text">
+        </label>
+        <div class="login_input_list_border1"></div>
+        <label class="item item-input input_list_item">
+          <img src="img/icon_password.png" class="input_icon">
+          <input type="password" placeholder="密码" class="input_form" ng-model="txtpassword.text">
+        </label>
+        <div class="login_input_list_border2"></div>
+        <button class="input_button button button-block button-positive" ng-click="login()">
+          登录
+        </button>
+      </div>
+
+      <div class="row" style="width: 100%;margin-top: 40px;">
+        <label class="input_bottom_text" style="width: 100%;text-align: center;">版本:V1.6.0(PRD)</label>
+        <!--<div class="col col-50 col-bottom" style="text-align: right;">-->
+          <!--<label class="input_bottom_text" ng-click="gotopassword()">忘记密码?</label>-->
+        <!--</div>-->
+        <!--<div class="col">-->
+          <!--<label class="input_bottom_text">|</label>-->
+        <!--</div>-->
+        <!--<div class="col col-50">-->
+          <!--<label class="input_bottom_text" ng-click="gotoregister()">新用户注册</label>-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+    <!--验证码登录-->
+    <div id="input_code" class="{{css_iscodelogin}}">
+      <div class="list" style="position: relative;top: 20px;text-align:center;">
+        <label class="item item-input input_list_item">
+          <img src="img/icon_phone.png" class="input_icon">
+          <input type="tel" placeholder="手机号码" class="input_form" ng-model="codeform.tel">
+        </label>
+        <div class="login_input_list_border1"></div>
+        <!--<div class="bar bar-header item-input-inset">-->
+          <!--<label class="item item-input input_list_item">-->
+            <!--<img src="img/icon_code.png" class="input_icon">-->
+            <!--<input type="text" placeholder="验证码" class="inputcode_form">-->
+          <!--</label>-->
+          <!--<button class="{{css_btncode}}" ng-click="getcode()">获取验证码</button>-->
+        <!--</div>-->
+        <div style="position: relative;">
+          <label class="item item-input input_list_item">
+            <img src="img/icon_code.png" class="input_icon">
+            <input type="text" placeholder="验证码" class="inputcode_form" ng-model="codeform.code">
+          </label>
+          <button class="{{css_btncode}}" ng-click="getcode()" style="position: absolute;z-index: 2;right: 5%;top: 15px;">{{codebutton.text}}</button>
+        </div>
+        <div class="login_input_list_border2"></div>
+        <button class="input_button button button-block button-positive" ng-click="login()">
+          登录
+        </button>
+      </div>
+
+      <div class="row" style="width: 100%;margin-top: 40px;">
+        <label class="input_bottom_text" style="width: 100%;text-align: center;">版本:V1.6.0(PRD)</label>
+        <!--<div class="col col-50 col-bottom" style="text-align: right;">-->
+          <!--<label class="input_bottom_text" ng-click="gotopassword()">忘记密码?</label>-->
+        <!--</div>-->
+        <!--<div class="col">-->
+          <!--<label class="input_bottom_text">|</label>-->
+        <!--</div>-->
+        <!--<div class="col col-50">-->
+          <!--<label class="input_bottom_text" ng-click="gotoregister()">新用户注册</label>-->
+        <!--</div>-->
+      </div>
+
+    </div>
+    <!--</ion-scroll>-->
+    <div id="welcomediv" style="position: absolute;left: 0;top: 0;z-index: 100;width: 100%;height: 100%;opacity: 0;">
+      <ion-slide-box active-slide="myActiveSlide" does-continue="true" style="width: 100%;height: 100%">
+        <ion-slide>
+          <img src="img/welcome1.png" style="width: 100%;height: 100%">
+        </ion-slide>
+        <ion-slide>
+          <img src="img/welcome2.png" style="width: 100%;height: 100%">
+        </ion-slide>
+        <ion-slide>
+          <img src="img/welcome3.png" style="width: 100%;height: 100%">
+        </ion-slide>
+        <ion-slide>
+          <img src="img/welcome4.png" style="width: 100%;height: 100%">
+
+          <div style="position: absolute;z-index: 2;width: 300px;height:35px;left: calc(50% - (150px));bottom: 80px;">
+            <button class="button button-small main_center_button" ng-click="autoLogin()">
+              <label style="margin-left: 30px;margin-right: 30px">开始使用</label>
+            </button>
+          </div>
+
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+  </ion-content>
+</ion-view>

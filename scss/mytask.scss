@@ -1,0 +1,90 @@
+@import "commoncfg";
+
+#task_header{
+  background-color: $color_white_01;
+  width: 100%;
+  height: 75px;
+
+  label{
+    color:$color_font_04;
+    font-size: $fontsize_13;
+    margin: auto auto;
+  }
+}
+
+#task_date{
+  label{
+    color:$color_font_04;
+    font-size: $fontsize_13 ;
+  }
+}
+
+.task_date_detail{
+  label{
+    color:$color_font_04;
+    font-size: $fontsize_13;
+    width: 30px;
+    line-height: 30px;
+    margin: auto auto;
+  }
+}
+
+.task_button_go{
+  background-color: $color_blue_06;
+  height: 42.5px;
+  width: 42.5px;
+
+  border-radius: 21.3px;
+
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  top: 29px;
+
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+
+  color: $color_font_02;
+  font-size: $fontsize_13;
+}
+
+.task_button_img{
+  height: 85px;
+  width: 105px;
+  position: relative;
+  right: 120px;
+  top: 0px;
+
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+
+  .task_oper_img{
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+  }
+}
+
+.css_audit_position{
+  width: 100px;
+  color: $color_font_04;
+  font-size: $fontsize_13;
+  text-overflow:ellipsis;overflow:hidden;white-space:nowrap;word-break:keep-all;
+}
+
+//.task_button_go:before{
+//  padding:50% 0;/* 此时padding相对于width:20%; */
+//  display:inline-block;
+//}

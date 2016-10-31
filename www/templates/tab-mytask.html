@@ -1,0 +1,133 @@
+<ion-view title="我的任务" cache-view="true">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right" ng-click="gotoMessage()">
+      <button class="button button-icon icon ion-email"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="task_header">
+      <div class="row" ng-style="{'line-height': '40px'}" style="height: 40px;background-color: #ffffff">
+        <div class="col text-center" ng-click="navfix()"><img src="img/task_header1@2x.png" height="35px"></div>
+        <div class="col text-center" ng-click="navmaintain()"><img src="img/task_header2@2x.png" height="35px"></div>
+        <div class="col text-center" ng-click="navwash()"><img src="img/task_header3@2x.png" height="35px"></div>
+        <div class="col text-center" ng-click="navoil()"><img src="img/task_header4@2x.png" height="35px"></div>
+      </div>
+      <div class="row" ng-style="{'line-height': '30px'}">
+        <div class="col text-center" ng-click="navfix()"><label>一键快修</label></div>
+        <div class="col text-center" ng-click="navmaintain()"><label>一键保养</label></div>
+        <div class="col text-center" ng-click="navwash()"><label>一键洗车</label></div>
+        <div class="col text-center" ng-click="navoil()"><label>一键加油</label></div>
+      </div>
+    </div>
+    <div style="width:100%;height: 8px;background-color: #eeeeee"></div>
+    <div id="task_date">
+      <div>
+        <div class="row task_date">
+          <div class="col col-10 text-right" ng-click="lastMonth()"><img src="img/mytask_date_left@2x.png" height="13px"></div>
+          <div class="col col-80 text-center"><label>{{currentMonthString}}</label></div>
+          <div class="col col-10 text-left" ng-click="nextMonth()"><img src="img/mytask_date_right@2x.png" height="13px"></div>
+        </div>
+      </div>
+      <div>
+        <div class="row task_date">
+          <div class="col text-center"><label>周日</label></div>
+          <div class="col text-center"><label>周一</label></div>
+          <div class="col text-center"><label>周二</label></div>
+          <div class="col text-center"><label>周三</label></div>
+          <div class="col text-center"><label>周四</label></div>
+          <div class="col text-center"><label>周五</label></div>
+          <div class="col text-center"><label>周六</label></div>
+        </div>
+        <div id="date1" class="row task_date_detail">
+          <div class="col text-center" ng-repeat="row1 in datesource1" ng-click="changeDate('{{row1.datestring}}')" ng-bind-html="row1.htmlcontent | to_trusted"></div>
+        </div>
+        <div id="date2" class="row" style="height: 0px;opacity: 0">
+          <div class="col text-center" ng-repeat="row2 in datesource2" ng-click="changeDate('{{row2.datestring}}')" ng-bind-html="row2.htmlcontent | to_trusted"></div>
+        </div>
+        <div id="date3" class="row" style="height: 0px;opacity: 0">
+          <div class="col text-center" ng-repeat="row3 in datesource3" ng-click="changeDate('{{row3.datestring}}')" ng-bind-html="row3.htmlcontent | to_trusted"></div>
+        </div>
+        <div id="date4" class="row" style="height: 0px;opacity: 0">
+          <div class="col text-center" ng-repeat="row4 in datesource4" ng-click="changeDate('{{row4.datestring}}')" ng-bind-html="row4.htmlcontent | to_trusted"></div>
+        </div>
+        <div id="date5" class="row" style="height: 0px;opacity: 0">
+          <div class="col text-center" ng-repeat="row5 in datesource5" ng-click="changeDate('{{row5.datestring}}')" ng-bind-html="row5.htmlcontent | to_trusted"></div>
+        </div>
+        <div id="date6" class="row" style="height: 0px;opacity: 0;">
+          <div class="col text-center" ng-repeat="row6 in datesource6" ng-click="changeDate('{{row6.datestring}}')" ng-bind-html="row6.htmlcontent | to_trusted"></div>
+        </div>
+      </div>
+      <div style="position: absolute;z-index: 2;background-color: #ffffff;width: 100%;border-top: solid 1px #cccccc;border-bottom: solid 1px #cccccc;text-align: center"
+           ng-click="showDate()">
+        <img id="mytask_date_oper" src="img/mytask_date_show@2x.png" height="10px">
+      </div>
+    </div>
+
+    <ion-scroll id="scrollmytask" style="display:block;height:calc(100% - (83px) - (144px));margin-top: 22px;" delegate-handle="scrollmytask">
+
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+      <div class="css_audit_item" ng-repeat="item in items">
+        <div class="css_audit_header">
+          <label>订单编号:{{item.ApplyCode}}</label><img src="{{item.rangeimage}}">
+        </div>
+        <div class="css_audit_row" style="height: 100px">
+          <div class="col" style="position: relative">
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/task_time@2x.png" width="18px">
+                <label class="normal">{{item.start|dateConvert}} ~ {{item.end|dateConvert}}</label>
+                <label class="small"> {{item.Duration}}</label>
+              </label>
+            </div>
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/main_positionstart@2x.png" width="18px" style="margin-top: -3px;">
+                <label class="normal">{{item.GetOnAddress}}</label>
+              </label>
+            </div>
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/main_positionend@2x.png" width="18px" style="margin-top: -3px;">
+                <label class="normal">{{item.GetOffAddress}}</label>
+              </label>
+            </div>
+            <div class="task_button_go" ng-click="changeStatus({{item}})">
+              {{item.statusText}}
+            </div>
+          </div>
+        </div>
+        <div id="detailrow_{{item.index}}" class="css_audit_row" style="height:auto;border-width: 1px;">
+          <div class="css_audit_col">
+            <label>派遣车辆:<label class="bluelabel">{{item.LicenseNumber}}</label></label>
+            <br>
+            <label>用车事由:{{item.Reason}}</label>
+            <br/>
+            <label>乘车人:{{item.Applicant}} {{item.DepartmentName}}</label>
+            <br/>
+            <label>乘车人数: {{item.PassengersNumber}}</label>
+            <br/>
+            <label>备注:{{item.Remarks}}</label>
+          </div>
+          <div class="col">
+            <div class="task_button_img">
+              <!--<img class="task_oper_img" src="img/main_moremessage@2x.png">-->
+              <a href="tel:{{item.ApplicantPhone}}"><img class="task_oper_img" src="img/main_moretel@2x.png" style="position: absolute;right: 0px;"></a>
+            </div>
+          </div>
+        </div>
+        <!--<div style="background-color: #ffffff;width: 100%;border-bottom: solid 1px #cccccc;text-align: center"-->
+            <!--ng-click="showtaskdetail('{{item.index}}')">-->
+          <!--<img id="detailimg_{{item.index}}" src="img/mytask_date_show@2x.png" height="10px">-->
+        <!--</div>-->
+
+      </div>
+    </ion-scroll>
+  </ion-content>
+
+</ion-view>

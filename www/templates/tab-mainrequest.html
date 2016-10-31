@@ -1,0 +1,184 @@
+<ion-view view-title="用车申请" cache-view="false">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="mainrequest_header">
+      <div class="row">
+        <div id="mainrequest_seg1" class="col col-33 colSelected" ng-click="segementChange(0,$event)">保留车辆</div>
+        <div id="mainrequest_seg2" class="col col-33 colUnSelected" ng-click="segementChange(1,$event)">应急保障</div>
+        <div id="mainrequest_seg3" class="col col-33 colUnSelected" ng-click="segementChange(2,$event)">社会租赁</div>
+      </div>
+      <div id="mainrequest_seg" class="mainrequest_seg left"></div>
+    </div>
+
+    <!--ios-->
+    <!--<ion-scroll style="display:block;height:calc(100% - (49px));" delegate-handle="scrollmainrequest">-->
+    <!--android-->
+    <div style="display:block;height:calc(100% - (49px));overflow-x: hidden;overflow-y: auto">
+      <div class="css_mainrequest_header">
+        <img src="img/mainrequest_userinfo@2x.png"><label>用车人信息</label>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="item item-input item-select mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">部门</label>
+            </div>
+            <select ng-change="departmentChanged(departmentselect)" ng-model="departmentselect">
+              <option ng-repeat="department in departmentList">{{department.DepartmentName}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="item item-input item-select mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">姓名</label>
+            </div>
+            <select ng-change="nameChanged(nameselect)" ng-model="nameselect">
+              <option ng-repeat="namement in namementList">{{namement.Name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="item item-input mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">电话</label>
+            </div>
+            <input type="text" type="tel" ng-model="crphone.text" style="text-align:right">
+          </div>
+        </div>
+        <div class="col">
+          <div class="item item-input item-select mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">用车人数</label>
+            </div>
+            <select ng-change="numberChanged(numberselect)" ng-model="numberselect">
+              <option ng-repeat="applicantment in applicantmentList">{{applicantment.number}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="css_mainrequest_header">
+        <img src="img/mainrequest_carinfo@2x.png"><label>车辆信息</label>
+      </div>
+      <div class="row mainrequest_rowcar">
+        <div class="col" ng-click="selectDate(0)">
+          <div class="left1">开始时间</div>
+          <div class="left2">{{crstartdate}}</div>
+          <div class="left3">{{crstarttime}}</div>
+        </div>
+        <div class="col">
+          <div class="middle" style="overflow: hidden"><nobr>{{crduration}}小时</nobr></div>
+        </div>
+        <div class="col" ng-click="selectDate(1)">
+          <div class="right1">结束时间</div>
+          <div class="right2">{{crenddate}}</div>
+          <div class="right3">{{crendtime}}</div>
+        </div>
+      </div>
+      <div class="row mainrequest_rowcar">
+        <div class="list" style="text-align:left;background-color: transparent;width:100%">
+          <label class="item item-input" style="border: 0;background-color: transparent;">
+            <img src="img/main_positionstart@2x.png" width="18px">
+            <input type="text" placeholder="请输入上车地点(出发地)" style="margin-left: 12px;width:80%" ng-model="address.on">
+            <img src="img/main_moreposition@2x.png" width="24px">
+          </label>
+          <label class="item item-input" style="border: 0">
+            <img src="img/main_positionend@2x.png" width="18px">
+            <input type="text" placeholder="请输入下车地点(目的地)" style="margin-left: 12px;width:80%" ng-model="address.off">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="item item-input item-select mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">用车事由:</label>
+            </div>
+            <select ng-change="reasonChanged(reasonselect)" ng-model="reasonselect">
+              <option ng-repeat="reason in reasonList">{{reason.Value}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="item item-input mainrequest_selected">
+            <div class="input-label">
+              <label class="select_title">用车备注:</label>
+            </div>
+            <input type="text" style="text-align:right" ng-model="crmark.text">
+          </div>
+        </div>
+      </div>
+      <div class="css_mainrequest_header">
+        <img src="img/mainrequest_typeinfo@2x.png"><label>车型选择</label>
+      </div>
+      <div class="row" ng-repeat="vtype in vehicletypeList">
+        <div class="col" style="margin-left: 12px">
+          <div class="mainrequest_carheader normal">
+            <img src="img/mainrequest_carbackground@2x.png" style="margin-top: 5px;">
+          </div>
+          <div class="mainrequest_carbottom normal">
+            {{vtype.value1}}
+          </div>
+        </div>
+        <div class="col mainrequest_carnumbercol">
+          <div class="row mainrequest_carnumber">
+            <div class="col left" ng-click="releasecar('{{vtype.key1}}')">-</div>
+            <div class="col middle" id="mainrequest_vehicletypes_{{vtype.key1}}">0</div>
+            <div class="col right" ng-click="addcar('{{vtype.key1}}')">+</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mainrequest_carheader normal" ng-hide="{{vtype.key2visible}}">
+            <img src="img/mainrequest_carbackground@2x.png" style="margin-top: 5px;">
+          </div>
+          <div class="mainrequest_carbottom normal" ng-hide="{{vtype.key2visible}}">
+            {{vtype.value2}}
+          </div>
+        </div>
+        <div class="col mainrequest_carnumbercol">
+          <div class="row mainrequest_carnumber" ng-hide="{{vtype.key2visible}}">
+            <div class="col left" ng-click="releasecar('{{vtype.key2}}')">-</div>
+            <div class="col middle" id="mainrequest_vehicletypes_{{vtype.key2}}">0</div>
+            <div class="col right" ng-click="addcar('{{vtype.key2}}')">+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mainrequest_rowcar">
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+      </div>
+      <button class="input_button button button-block button-positive"
+              style="width: 80%;margin-left: 10%;margin-top: 30px;" ng-click="saveRequest()">
+        提交
+      </button>
+      <div style="height: 20px;width: 100%"></div>
+    </div>
+    <!--</ion-scroll>-->
+  </ion-content>
+  <script id="select-company.html" type="text/ng-template">
+    <ion-popover-view>
+      <ion-header-bar>
+        <h1 class="title">选择租赁公司</h1>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat="item in companyItems" ng-click="chooseCompany({{item.OrgId}})">{{item.CompanyName}}</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-popover-view>
+  </script>
+</ion-view>

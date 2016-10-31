@@ -1,0 +1,90 @@
+@import "commoncfg";
+
+.mainrequestcar_itemrow{
+  height: 80px;
+  width: 100%;
+  border-bottom: solid 1px $color_gray_05;
+
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:center;
+  box-pack:center;
+  box-align:center;
+
+  .left{
+    width: 80px;
+    height: 79px;
+    border-right:solid 1px $color_gray_05;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:center;
+    box-pack:center;
+    box-align:center;
+
+    .carimg{
+      width: 35px;
+      height: 35px;
+      border-radius: 20px;
+      background-color: #bbbbbb;
+
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+      /* W3C */
+      display:center;
+      box-pack:center;
+      box-align:center;
+    }
+  }
+
+  .right{
+    width: calc(100% - (80px));
+    height: 80px;
+    position: relative;
+
+    .row1{
+      line-height: 40px;
+      margin-left: 12px;
+      margin-top: 0px;
+      color:$color_font_04;
+      font-size:$fontsize_15;
+    }
+
+    .row2{
+      margin-left: 12px;
+      line-height: 40px;
+      color:$color_font_08;
+      font-size:$fontsize_13;
+
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:start;
+      -webkit-box-align:center;
+      /* W3C */
+      display:center;
+      box-pack:start;
+      box-align:center;
+    }
+
+    .location{
+      position: absolute;
+      right: 12px;
+      top: 22.5px;
+    }
+    .location1{
+      position: absolute;
+      z-index: 2;
+      right: 64px;
+      top: 22.5px;
+    }
+  }
+
+}

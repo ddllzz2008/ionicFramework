@@ -1,0 +1,31 @@
+@import "commoncfg";
+
+.returncomfirm_content{
+  width: 100%;
+
+  label{
+    margin-left: 18px;
+    line-height: 35px;
+    color: $color_font_04;
+    font-size: $fontsize_13;
+  }
+
+  input{
+    border-bottom: solid 1px $color_gray_05;
+
+    color: $color_font_04;
+    font-size: $fontsize_13;
+
+    line-height: 35px;
+  }
+
+  .input1{
+    float: right;
+    width: 80px;
+    margin-right: calc(100% - (80px) - (18px) - (100px));
+  }
+  .input2{
+    width: calc(100% - (36px));
+    margin-left: 18px;
+  }
+}

@@ -1,0 +1,329 @@
+@import "commoncfg";
+
+#audit_header{
+  background-color:$color_blue_01;width: 100%;height: 49px;
+
+  .row{
+    width: 100%;position:relative;
+
+    .colSelected{
+      text-align: center;
+      color:$color_font_02;
+      font-size: $fontsize_16;
+    }
+
+    .colUnSelected{
+      text-align: center;
+      color:$color_font_05;
+      font-size: $fontsize_15;
+    }
+  }
+
+  .audit_seg_normal{
+    background-color:$color_white_01;height: 2px;
+    position: absolute;
+    text-align: left;
+    width: 90px;
+    top: 36px;
+    left:calc(50% / 2 - (90px) / 2);
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:start;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:start;
+    -moz-box-align:center;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:start;
+    -webkit-box-align:center;
+    /* W3C */
+    display:start;
+    box-pack:left;
+    box-align:center;
+  }
+  .audit_seg_right{
+    background-color:$color_white_01;height: 2px;
+    position: absolute;
+    text-align: left;
+    width: 90px;
+    top: 36px;
+    left:calc(50% + (50% - (90px))/2);
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:left;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:left;
+    -moz-box-align:center;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:left;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:left;
+    box-align:center;
+  }
+
+  //.audit_seg_left{
+  //  background-color:$color_white_01;height: 2px;
+  //  position: absolute;
+  //  text-align: left;
+  //  width: 90px;
+  //  top: 36px;
+  //
+  //  animation:animationSegementRight 0.2s linear 0s 1 alternate;
+  //  /* Safari and Chrome: */
+  //  -webkit-animation:animationSegementRight 0.2s linear 0s 1 alternate;
+  //  animation-fill-mode: forwards;
+  //
+  //  /* Internet Explorer 10 */
+  //  display:-ms-flexbox;
+  //  -ms-flex-pack:left;
+  //  -ms-flex-align:center;
+  //
+  //  /* Firefox */
+  //  display:-moz-box;
+  //  -moz-box-pack:left;
+  //  -moz-box-align:center;
+  //
+  //  /* Safari, Chrome, and Opera */
+  //  display:-webkit-box;
+  //  -webkit-box-pack:left;
+  //  -webkit-box-align:center;
+  //  /* W3C */
+  //  display:box;
+  //  box-pack:left;
+  //  box-align:center;
+  //}
+  //
+  //.audit_seg_right{
+  //  background-color:$color_white_01;height: 2px;
+  //  position: absolute;
+  //  text-align: left;
+  //  width: 90px;
+  //  top: 36px;
+  //
+  //  animation:animationSegementLeft 0.2s linear 0s 1 alternate;
+  //  /* Safari and Chrome: */
+  //  -webkit-animation:animationSegementLeft 0.2s linear 0s 1 alternate;
+  //  animation-fill-mode: forwards;
+  //
+  //  /* Internet Explorer 10 */
+  //  display:-ms-flexbox;
+  //  -ms-flex-pack:left;
+  //  -ms-flex-align:center;
+  //
+  //  /* Firefox */
+  //  display:-moz-box;
+  //  -moz-box-pack:left;
+  //  -moz-box-align:center;
+  //
+  //  /* Safari, Chrome, and Opera */
+  //  display:-webkit-box;
+  //  -webkit-box-pack:left;
+  //  -webkit-box-align:center;
+  //  /* W3C */
+  //  display:box;
+  //  box-pack:left;
+  //  box-align:center;
+  //}
+}
+
+/*动画*/
+@keyframes animationSegementLeft
+{
+  0%   {left:calc(50% / 2 - (90px) / 2);}
+  100% {left:calc(50% + (50% - (90px))/2);}
+}
+
+@-webkit-keyframes animationSegementLeft /* Safari and Chrome */
+{
+  0%   {left:calc(50% / 2 - (90px) / 2);}
+  100% {left:calc(50% + (50% - (90px))/2);}
+}
+
+@keyframes animationSegementRight
+{
+  0%   {left:calc(50% + (50% - (90px))/2);}
+  100% {left:calc(50% / 2 - (90px) / 2);}
+}
+
+@-webkit-keyframes animationSegementRight /* Safari and Chrome */
+{
+  0%   {left:calc(50% + (50% - (90px))/2);}
+  100% {left:calc(50% / 2 - (90px) / 2);}
+}
+
+/*列表布局样式*/
+.css_audit_item{
+  width: 100%;
+
+  .css_audit_header{
+    background-color:$color_gray_04;
+    width:100%;
+    height: 35px;
+
+    vertical-align:middle;
+
+    label{
+      margin-left: 12px;
+      color:$color_font_04;
+      font-size:$fontsize_14;
+      font-weight: bold;
+      line-height: 35px;
+      //vertical-align:middle;
+    }
+
+    img{
+      height: 20px;
+      margin-left: 12px;
+      vertical-align:middle;
+    }
+  }
+
+  .css_audit_row{
+    border-bottom: solid 1px $color_gray_03;
+
+    height: 85px;
+
+      text-align: left;
+      vertical-align: middle;
+      /* Internet Explorer 10 */
+      display:-ms-flexbox;
+      -ms-flex-pack:start;
+      -ms-flex-align:center;
+
+      /* Firefox */
+      display:-moz-box;
+      -moz-box-pack:start;
+      -moz-box-align:center;
+
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:start;
+      -webkit-box-align:center;
+      /* W3C */
+      display:box;
+      box-pack:start;
+      box-align:center;
+
+      .iconlocation{
+        height: 17px;
+      }
+
+    .row{
+      height: 30px;
+      width: 100%;
+    }
+
+    .css_audit_col{
+      width: 100%;
+      label{
+        line-height: 25px;
+      }
+
+      .bluelabel{
+        color: $color_blue_01;
+      }
+    }
+    .css_audit_col1{
+      width: 100px;
+    }
+    .css_audit_col2{
+      width: 100%;
+    }
+
+      label{
+
+        text-overflow:ellipsis;overflow:hidden;white-space:nowrap;word-break:keep-all;
+
+        margin-left: 14px;
+        line-height: 15px;
+
+        color: $color_font_04;
+        font-size: $fontsize_13;
+      }
+
+    .css_audit_middlelabel{
+      width: 100%;
+      color: $color_blue_01;
+      font-size: $fontsize_12;
+    }
+
+    .css_audit_img{
+      text-align: right;
+      margin-right: 12px;
+      height: 30px;
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:end;
+      -webkit-box-align:start;
+      /* W3C */
+      display:box;
+      box-pack:end;
+      box-align:start;
+      float: right;
+    }
+  }
+
+  .css_audit_opr{
+    border-bottom: solid 1px $color_gray_03;
+    height: 50px;
+    position: relative;
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:end;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:end;
+    -moz-box-align:center;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:end;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:end;
+    box-align:center;
+
+    .btnreject{
+      background-color: $color_gray_03;
+      color: $color_font_04;
+      font-size: $fontsize_13;
+      width: 90px;
+      height: 25px !important;
+      //margin-top: 8px;
+      //margin-bottom: 8px;
+
+      position: absolute;
+      right: 114px;
+      top: 12.5px;
+    }
+
+    .btnprocess{
+      background-color: $color_yellow_01;
+      color: $color_font_04;
+      font-size: $fontsize_13;
+      width: 90px;
+      height: 25px;
+
+      position: absolute;
+      right: 12px;
+      top: 12.5px;
+    }
+  }
+}

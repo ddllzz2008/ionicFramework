@@ -1,0 +1,35 @@
+<ion-view view-title="意见反馈">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div style="background-color:#347aea;width: 100%;padding: 20px 0 20px 0;">
+      <div class="row">
+        <div class="col-25" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;
+                                    display:box;
+                                    box-pack:center;
+                                    box-align:center;">
+          <img src="img/menu_feedback.png" width="50px" style="text-align: center" />
+        </div>
+        <div class="col" style="font-size:14px;color: #ffffff">
+          选择一条困扰的问题或留下宝贵的建议,我们收到后将尽快回复,敬请留意
+        </div>
+      </div>
+    </div>
+    <div style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;
+                display:box;box-pack:center;box-align:center;width: 100%;
+                margin-top: 25px;">
+      <textarea style="width: calc(100% - (24px));height: 90px;
+                    border: solid 1px #cccccc;border-radius: 5px"
+                placeholder="写下您的建议或意见" ng-model="form.remark"></textarea>
+    </div>
+    <button class="input_button button button-block button-positive"
+            style="width: calc(100% - (24px));margin-left: 12px;margin-top: 20px;" ng-click="saveFeedback()">
+      提交
+    </button>
+  </ion-content>
+</ion-view>

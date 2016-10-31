@@ -1,0 +1,55 @@
+<!--<ion-side-menus enable-menu-with-back-views="false">-->
+  <!--<ion-side-menu-content>-->
+    <!--&lt;!&ndash;<ion-nav-bar class="bar-stable">&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-nav-back-button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-nav-back-button>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ion-nav-buttons side="left">&ndash;&gt;-->
+    <!--&lt;!&ndash;<button class="button button-icon button-clear ion-navicon" menu-toggle="left">&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-nav-bar>&ndash;&gt;-->
+    <!--<ion-nav-view name="menuContent"></ion-nav-view>-->
+  <!--</ion-side-menu-content>-->
+
+  <!--<ion-side-menu side="left">-->
+    <!--<ion-header-bar class="bar-stable">-->
+      <!--<h1 class="title">Left</h1>-->
+    <!--</ion-header-bar>-->
+    <!--<ion-content>-->
+      <!--<ion-list>-->
+        <!--<ion-item menu-close ng-click="login()">-->
+          <!--Login111-->
+        <!--</ion-item>-->
+        <!--<ion-item menu-close href="#/app/search">-->
+          <!--Search-->
+        <!--</ion-item>-->
+        <!--<ion-item menu-close href="#/app/browse">-->
+          <!--Browse-->
+        <!--</ion-item>-->
+        <!--<ion-item menu-close href="#/app/playlists">-->
+          <!--Playlists-->
+        <!--</ion-item>-->
+      <!--</ion-list>-->
+    <!--</ion-content>-->
+  <!--</ion-side-menu>-->
+<!--</ion-side-menus>-->
+
+
+<ion-tabs class="tabs-icon-top  tabs-color-active-positive">
+    <ion-tab title="首页" icon="ion-ios-albums-outline" icon-on="bar-main-on" icon-off="bar-main-off" href="app/tab/main" hidden="{{item.tab0visible}}">
+        <ion-nav-view name="tab-main"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我的审批" icon="ion-search" icon-on="bar-audit-on" icon-off="bar-audit-off" href="app/tab/audit" hidden="{{item.tab1visible}}">
+        <ion-nav-view name="tab-audit"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="调度派车" icon="ion-monitor" icon-on="bar-request-on" icon-off="bar-request-off" href="app/tab/myrequest" hidden="{{item.tab2visible}}">
+        <ion-nav-view name="tab-myrequest"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我的任务" icon="ion-ios-calculator-outline" icon-on="bar-task-on" icon-off="bar-task-off" href="app/tab/mytask" hidden="{{item.tab3visible}}">
+        <ion-nav-view name="tab-mytask"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="交车审核" icon="ion-ios-person-outline" icon-on="bar-return-on" icon-off="bar-return-off" href="app/tab/returnaudit" hidden="{{item.tab4visible}}">
+        <ion-nav-view name="tab-returnaudit"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

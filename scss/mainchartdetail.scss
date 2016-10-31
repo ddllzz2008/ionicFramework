@@ -1,0 +1,118 @@
+@import "commoncfg";
+
+#mainchartdetail_header {
+  width: 100%;
+  height: 50px;
+  background-color: $color_white_01;
+
+  border-bottom:solid 1px $color_gray_05;
+
+  .left {
+    float: left;
+    line-height: 50px;
+    margin-left: 12px;
+    color: $color_font_04;
+    font-size: $fontsize_14;
+  }
+}
+
+.mainchartdetailrow_header {
+  background-color: $color_gray_04;
+  width: 100%;
+  height: 35px;
+
+  vertical-align: middle;
+
+  label {
+    margin-left: 12px;
+    color: $color_font_04;
+    font-size: $fontsize_14;
+    font-weight: bold;
+    line-height: 35px;
+    //vertical-align:middle;
+  }
+
+  img {
+    height: 20px;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+}
+
+.mainchartdetail_row{
+  text-align:left;background-color: transparent;width:100%;
+  height: 30px;
+  line-height: 30px;
+
+  margin-left: -17px;
+  margin-top: 0px;
+
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:start;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:start;
+  box-align:center;
+
+  label{
+
+    border: 0px;
+
+    height: 20px;
+
+    margin-left: 5px;
+
+    .normal{
+      color: $color_font_04;
+      font-size: $fontsize_13;
+    }
+
+    .small{
+      color: $color_blue_01;
+      font-size: $fontsize_12;
+    }
+  }
+}
+
+.mainchartdetail_rightcol{
+  border-left: dashed 1px $color_gray_05;
+
+  .top{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    line-height: 40px;
+    margin-top: 10px;
+
+    color: $color_blue_01;
+    font-size: $fontsize_16;
+
+    .small{
+      font-size: $fontsize_11;
+    }
+  }
+
+  .bottom{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:start;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:start;
+
+    line-height: 20px;
+
+    color: $color_font_04;
+    font-size: $fontsize_11;
+  }
+}

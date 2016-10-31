@@ -1,0 +1,49 @@
+<ion-view view-title="费用明细">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="mainchartdetail_header">
+      <label class="left">{{startDate}} ~ {{endDate}}</label>
+    </div>
+    <ion-scroll zooming="false" direction="y" style="display:block;height:calc(100% - (50px) - (12px));margin-top: 12px">
+      <div class="css_audit_item" ng-repeat="item in items">
+        <div class="mainchartdetailrow_header">
+          <label>订单编号:{{item.ApplyCode}}</label><img src="{{item.rangeimage}}">
+        </div>
+        <div class="row">
+          <div class="col col-75">
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/task_time@2x.png" width="18px">
+                <label class="normal">{{item.Begin_Time|dateConvert}} ~ {{item.End_Time|dateConvert}}</label>
+                <label class="small"> {{item.Duration}}</label>
+              </label>
+            </div>
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/main_positionstart@2x.png" width="18px" style="margin-top: -3px;">
+                <label class="normal">{{item.GetOn_Address}}</label>
+              </label>
+            </div>
+            <div class="mainchartdetail_row">
+              <label class="item item-input">
+                <img src="img/main_positionend@2x.png" width="18px" style="margin-top: -3px;">
+                <label class="normal">{{item.GetOff_Address}}</label>
+              </label>
+            </div>
+          </div>
+          <div class="col mainchartdetail_rightcol">
+            <div class="top"><label class="small">￥</label>{{(item.Expenses+item.Vehicle_Application_Fee).toFixed(2)}}</div>
+            <div class="bottom">{{item.Kilometers}}公里</div>
+          </div>
+        </div>
+
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

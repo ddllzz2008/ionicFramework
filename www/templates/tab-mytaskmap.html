@@ -1,0 +1,31 @@
+<ion-view view-title="{{source.ApplyCode}}" cache-view="false">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div id="mytaskmap_rightbutton" ng-click="showdetail()">展开</div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scroll="false" style="overflow: hidden;">
+    <div id="mapcontainer" style="width: 100%;height: 100%"></div>
+    <div id="mytaskmap_content" class="mytaskmap_pop" style="display: none">
+      <div class="list" style="text-align:left;background-color: transparent;width:90%">
+        <label class="item item-input" style="border: 0;background-color: transparent;line-height: 40px;height: 40px">
+          <img src="img/main_positionstart@2x.png" width="18px">
+          <label style="margin-left: 5px">{{source.GetOnAddress}}</label>
+        </label>
+        <label class="item item-input" style="border: 0;margin-top: 10px;line-height: 40px;height: 40px">
+          <img src="img/main_positionend@2x.png" width="18px">
+          <label style="margin-left: 5px">{{source.GetOffAddress}}</label>
+        </label>
+      </div>
+    </div>
+    <div id="mytaskmap_popup" class="mytaskmap_popup" style="display: none"></div>
+    <button id="mytaskmap_confirm" class="input_button button button-block button-positive" style="background-color:#fab807" ng-click="changeStatus()">
+      开始
+    </button>
+  </ion-content>
+</ion-view>

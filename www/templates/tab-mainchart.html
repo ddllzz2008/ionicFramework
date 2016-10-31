@@ -1,0 +1,29 @@
+<ion-view view-title="我的费用">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="mainchart_header">
+      <label class="left">最近</label>
+      <label id="mainchart_label3" class="right selected" ng-click="changeDate(3)">三月</label>
+      <label id="mainchart_label2" class="right normal" ng-click="changeDate(2)">一月</label>
+      <label id="mainchart_label1" class="right normal" ng-click="changeDate(1)">一周</label>
+      <div id="mainchart_border" class="div_border right"></div>
+    </div>
+    <div id="mainchart_chart" style="width:100%;height: calc(100% - (230px));"></div>
+    <div id="mainchart_detail" style="width: 100%;height: 180px;" ng-click="gotoDetail(0)">
+      <div class="row1">{{currentSelect.currentTitle}}{{currentSelect.currentPercent}}</div>
+      <div class="row2"><label class="small">￥</label>{{currentSelect.currentAmount}}</div>
+      <div class="row3"><img src="img/icon_forward@2x.png" height="15px"></div>
+    </div>
+    <div id="mainchart_center"></div>
+    <div id="mainchart_centercontent" ng-click="gotoDetail(1)">
+      <div class="top">总计</div>
+      <div class="bottom">{{currentSelect.totalAmount}}</div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,319 @@
+@import "commoncfg";
+
+#mainrequest_header{
+  background-color:$color_blue_01;width: 100%;height: 49px;
+
+  .row{
+    width: 100%;position:relative;
+
+    .colSelected{
+      text-align: center;
+      color:$color_font_02;
+      font-size: $fontsize_16;
+    }
+
+    .colUnSelected{
+      text-align: center;
+      color:$color_font_05;
+      font-size: $fontsize_15;
+    }
+  }
+
+  .mainrequest_seg{
+    background-color:$color_white_01;height: 2px;
+    position: absolute;
+    text-align: left;
+    width: 80px;
+    top: 36px;
+
+    &.left{
+      left:calc(33% / 2 - (70px) / 2);
+    }
+    &.middle{
+      left:calc(50% - (80px) / 2);
+    }
+    &.right{
+      left:calc(67% + (33% - (90px))/2);
+    }
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:start;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:start;
+    -moz-box-align:center;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:start;
+    -webkit-box-align:center;
+    /* W3C */
+    display:start;
+    box-pack:left;
+    box-align:center;
+  }
+}
+
+/*列表布局样式*/
+  .css_mainrequest_header {
+    background-color: $color_gray_04;
+    width: 100%;
+    height: 35px;
+
+    vertical-align: middle;
+
+    label {
+      margin-left: 12px;
+      color: $color_font_04;
+      font-size: $fontsize_14;
+      font-weight: bold;
+      line-height: 35px;
+      //vertical-align:middle;
+    }
+
+    img {
+      height: 16px;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+  }
+
+  /*下拉框样式*/
+.mainrequest_selected{
+  border-width: 0px;
+  border-bottom: solid 1px $color_gray_05;
+
+  .select_title{
+    color: $color_font_04;
+    font-size: $fontsize_14;
+  }
+}
+
+.mainrequest_rowcar{
+  border-bottom: solid 1px $color_gray_05;
+  width: calc(100% - (16px));
+  margin-left: 8px;
+  margin-right: 8px;
+
+  .left1{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_08;
+    font-size: $fontsize_15;
+  }
+  .left2{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_09;
+    font-size: $fontsize_15;
+  }
+  .left3{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_09;
+    font-size: $fontsize_12;
+  }
+  .right1{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_08;
+    font-size: $fontsize_15;
+  }
+  .right2{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_04;
+    font-size: $fontsize_15;
+  }
+  .right3{
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    color: $color_font_04;
+    font-size: $fontsize_12;
+  }
+
+  .middle{
+    vertical-align: middle;
+    width: 45px;
+    height: 45px;
+    border-radius: 22.5px;
+    border: solid 1px $color_blue_06;
+    color: $color_font_10;
+    font-size: $fontsize_12;
+
+    margin: auto auto;
+
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+  }
+}
+
+.mainrequest_carheader{
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+
+  width: 100%;
+  border-radius:4px 4px 0 0;
+
+  &.normal{
+    border: solid 1px $color_gray_05;
+    background-color: #eeeeee;
+  }
+  &.selected{
+    border: solid 1px #35bbf8;
+    background-color: #ddf5ff;
+  }
+}
+
+.mainrequest_carbottom{
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+
+  width: 100%;
+  border-radius:0 0 4px 4px;
+
+  color: $color_font_04;
+  font-size: $fontsize_13;
+
+  &.normal{
+    border-left: solid 1px $color_gray_05;
+    border-bottom: solid 1px $color_gray_05;
+    border-right: solid 1px $color_gray_05;
+    background-color: #d8d8d8;
+  }
+  &.selected{
+    border-left: solid 1px #35bbf8;
+    border-bottom: solid 1px #35bbf8;
+    border-right: solid 1px #35bbf8;
+    background-color: #c4edff;
+  }
+}
+
+.mainrequest_carnumbercol{
+
+  /* Safari, Chrome, and Opera */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+
+  .mainrequest_carnumber{
+    height: 40px;
+    margin: auto auto;
+
+    .left{
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+      /* W3C */
+      display:box;
+      box-pack:center;
+      box-align:center;
+
+      color: $color_font_08;
+      font-size: $fontsize_16;
+      border-radius:4px 0 0 4px;
+      border-left: solid 1px $color_gray_05;
+      border-top: solid 1px $color_gray_05;
+      border-bottom: solid 1px $color_gray_05;
+    }
+    .middle{
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+      /* W3C */
+      display:box;
+      box-pack:center;
+      box-align:center;
+
+      color: $color_font_08;
+      font-size: $fontsize_16;
+      border: solid 1px $color_gray_05;
+    }
+    .right{
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+      /* W3C */
+      display:box;
+      box-pack:center;
+      box-align:center;
+
+      color: $color_font_04;
+      font-size: $fontsize_20;
+      border-radius:0 4px 4px 0;
+      border-right: solid 1px $color_gray_05;
+      border-top: solid 1px $color_gray_05;
+      border-bottom: solid 1px $color_gray_05;
+    }
+  }
+}

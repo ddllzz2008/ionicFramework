@@ -1,0 +1,98 @@
+<ion-view title="智慧公车">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right" ng-click="gotoMessage()">
+      <button class="button button-icon icon ion-email"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="main_imgbanner" tag="444">
+      <div id="main_car">
+        <label id="main_carnumber">{{currentTask.currentNumber}}</label>
+      </div>
+      <div id="main_time">
+        <img src="img/main_clarm@2x.png" height="100%">
+        <div class="time_des">{{currentTask.currentTime}}</div>
+        <img class="time_img" src="img/main_clarmleft@2x.png">
+      </div>
+    </div>
+    <div id="main_detail">
+      <div class="row rowborder">
+        <div class="col col-25 colborder">
+          {{currentTask.currentUseDate}}<br/><br/>{{currentTask.currentUseTime}}
+        </div>
+        <div class="col col-75">
+          <!--起始终止位置-->
+          <div class="col_position">
+            <img src="img/main_positionstart@2x.png">
+            <label>{{currentTask.GetOnAddress}}</label>
+          </div>
+          <div class="col_position">
+            <img src="img/main_positionend@2x.png">
+            <label>{{currentTask.GetOffAddress}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row rowborder">
+        <div class="col col-25 colborder">
+          <img src="img/main_morephoto@2x.png" height="30px"><br/>
+          <!--<label>{{currentTask.currentDriver}}</label>-->
+        </div>
+        <div class="col col-75">
+          <!--起始终止位置-->
+          <div class="col_position" style="width: 50%">
+            <label>{{currentTask.currentDriver}}</label>
+          </div>
+          <div class="col_position" style="width: 50%">
+            <label>{{currentTask.currentNumber}}</label>
+          </div>
+          <div class="col_operation">
+            <img src="img/main_moreposition@2x.png">
+            <a href="tel:{{currentTask.currentPhone}}"><img src="img/main_moretel@2x.png"></a>
+            <img src="img/main_moremessage@2x.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main_showbtn" ng-click="showDetail()">
+      <img id="main_showimg" src="img/main_more@2x.png" height="20px">
+    </div>
+
+    <div id="main_scroll_hidden" style="height: 100%">
+      <ion-scroll style="overflow-y: auto;height: calc(100% - (300px));">
+
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
+      <button class="button button-small main_center_button" ui-sref="mainrequest">
+      <img src="img/main_moreleft@2x.png" height="15px">
+      <label style="margin-left: 30px;margin-right: 30px">一键用车</label>
+      <img src="img/main_moreright@2x.png" height="15px">
+      </button>
+
+      <div class="list" style="margin-top:20px">
+      <a class="item item-avatar" ui-sref="mainprocess">
+      <img src="img/main_travl@2x.png" height="40px">
+      <h2>我的行程</h2>
+      <p>行程详情 随时查看</p>
+      <i class="icon main_right_forward"><img src="img/icon_forward@2x.png" height="15px" item-right></i>
+      </a>
+      <a class="item item-avatar" ui-sref="mainchart">
+      <img src="img/main_price@2x.png" height="40px">
+      <h2>我的费用</h2>
+      <p>用车费用 一目了然</p>
+      <i class="icon main_right_forward"><img src="img/icon_forward@2x.png" height="15px" item-right></i>
+      </a>
+      </div>
+
+      <div id="main_hidden"></div>
+
+      </ion-scroll>
+    </div>
+
+  </ion-content>
+
+</ion-view>

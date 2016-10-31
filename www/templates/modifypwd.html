@@ -1,0 +1,31 @@
+<ion-view view-title="修改密码">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scroll="false" style="overflow: hidden;">
+    <div id="input_code" class="list" style="position: relative;top: 20px;text-align:center;">
+      <label class="item item-input input_list_item" style="width: 90%;height: 60px;margin-left:5%;margin-right:5%;border-bottom: solid 1px #91a2bc;">
+        <img src="img/icon_username.png" class="input_icon">
+        <input type="password" placeholder="旧密码" class="input_form" ng-model="form.oldpassword">
+      </label>
+      <div class="forget_input_list_border1"></div>
+      <label class="item item-input input_list_item" style="width: 90%;height: 60px;margin-left:5%;margin-right:5%;border-bottom: solid 1px #91a2bc;">
+        <img src="img/icon_password.png" class="input_icon">
+        <input type="password" placeholder="新密码" class="input_form" ng-model="form.newpassword">
+      </label>
+      <div class="forget_input_list_border1"></div>
+      <label class="item item-input input_list_item" style="width: 90%;height: 60px;margin-left:5%;margin-right:5%;border-bottom: solid 1px #91a2bc;">
+        <img src="img/icon_password.png" class="input_icon">
+        <input type="password" placeholder="重复密码" class="input_form" ng-model="form.repassword">
+      </label>
+      <div class="forget_input_list_border2"></div>
+      <button class="input_button button button-block button-positive" ng-click="savePassword()">
+        保 存
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

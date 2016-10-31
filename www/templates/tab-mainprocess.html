@@ -1,0 +1,131 @@
+<ion-view view-title="我的行程" cache-view="false">
+
+  <ion-nav-bar class="bar-positive" ng-style="{'background-color': viewColor}">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <div id="mainprocess_header">
+      <div class="row" ng-style="{'line-height': '40px'}" style="height: 40px;background-color: #ffffff">
+        <div class="col text-center">
+            <img id="mainprocess_header_img1" src="img/mainprocess_audit_blue@2x.png" height="20px" ng-click="mainprocess_segementChange(0)">
+        </div>
+        <div class="col text-center">
+          <img id="mainprocess_header_img2" src="img/mainprocess_caring_gray@2x.png" height="20px" ng-click="mainprocess_segementChange(1)">
+        </div>
+        <div class="col text-center">
+          <img id="mainprocess_header_img3" src="img/mainprocess_service_gray@2x.png" height="20px" ng-click="mainprocess_segementChange(2)">
+        </div>
+        <div class="col text-center">
+          <img id="mainprocess_header_img4" src="img/mainprocess_complete_gray@2x.png" height="20px" ng-click="mainprocess_segementChange(3)">
+        </div>
+        <div class="col text-center" style="border-left: dashed 1px #cccccc;">
+          <img id="mainprocess_header_img5" src="img/mainprocess_all_gray@2x.png" height="20px" ng-click="mainprocess_segementChange(4)">
+        </div>
+      </div>
+      <div class="row" ng-style="{'line-height': '30px'}">
+        <div class="col text-center" ng-click="mainprocess_segementChange(0)"><label id="mainprocess_header_title1" class="selected">审批中</label></div>
+        <div class="col text-center" ng-click="mainprocess_segementChange(1)"><label id="mainprocess_header_title2" class="normal">派车中</label></div>
+        <div class="col text-center" ng-click="mainprocess_segementChange(2)"><label id="mainprocess_header_title3" class="normal">服务中</label></div>
+        <div class="col text-center" ng-click="mainprocess_segementChange(3)"><label id="mainprocess_header_title4" class="normal">已完成</label></div>
+        <div class="col text-center" style="border-left: dashed 1px #cccccc;" ng-click="mainprocess_segementChange(4)"><label id="mainprocess_header_title5" class="normal">全部</label></div>
+      </div>
+      <div class="mark_div">
+        <div class="row" ng-style="{'line-height': '20px'}">
+          <div class="col text-center" ng-click="mainprocess_segementChange(0)"><div id="mainprocess_header_mark1" class="mark">{{itemscount0}}</div></div>
+          <div class="col text-center" ng-click="mainprocess_segementChange(1)"><div id="mainprocess_header_mark2" class="mark">{{itemscount1}}</div></div>
+          <div class="col text-center" ng-click="mainprocess_segementChange(2)"><div id="mainprocess_header_mark3" class="mark">{{itemscount2}}</div></div>
+          <div class="col text-center" ng-click="mainprocess_segementChange(3)"><div id="mainprocess_header_mark4" class="mark">{{itemscount3}}</div></div>
+          <div class="col text-center" ng-click="mainprocess_segementChange(4)"><div id="mainprocess_header_mark5" class="mark">{{itemscount4}}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <ion-scroll style="display:block;overflow-y: auto;height: calc(100% - (75px));" delegate-handle="scrollmainprocess">
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+      <div class="css_audit_item" ng-repeat="item in items">
+        <img src="{{item.stateimage}}" height="45px" style="position: absolute;right: 12px">
+        <div class="css_audit_header">
+          <label>订单编号:{{item.ApplyCode}}</label><img src="{{item.rangeimage}}">
+        </div>
+        <div class="css_audit_row" style="height:30px;border-bottom:0">
+          <div id="mainprocess_time">
+            <img src="img/main_clarm@2x.png" height="100%">
+            <div class="time_des">{{item.title}}</div>
+            <img class="time_img" src="img/main_clarmleft@2x.png">
+          </div>
+        </div>
+        <div class="css_audit_row">
+          <div class="css_audit_col1">
+            <label>{{item.UsageTime|dateConvert}}</label>
+            <br/>
+            <label class="css_audit_middlelabel">{{item.Duration}}</label>
+            <br/>
+            <label>{{item.ReturnTime|dateConvert}}</label>
+          </div>
+          <div class="css_audit_col2" style="margin-top: -10px;">
+            <!--起始终止位置-->
+            <div style="margin-top:-4px;margin-left: 12px;">
+              <div class="row">
+                <div style="width:17px;"><img class="iconlocation" src="img/main_positionstart@2x.png" style="margin-top: 7px;"></div>
+                <div class="col" style="margin-left: -15px;"><label>{{item.GetOnAddress}}</label></div>
+              </div>
+            </div>
+            <!--<div style="height: 10px"></div>-->
+            <div style="margin-top: 10px;margin-left: 12px;">
+              <div class="row">
+                <div style="width:17px;"><img class="iconlocation" src="img/main_positionend@2x.png" style="margin-top: 7px;"></div>
+                <div class="col" style="margin-left: -15px;"><label>{{item.GetOffAddress}}</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="css_audit_row" style="height:auto;overflow: hidden">
+          <div class="css_audit_col">
+            <label>用车事由:{{item.Reason}}</label>
+            <br/>
+            <label>乘车人:{{item.Applicant}} {{item.DepartmentName}}</label>
+            <br/>
+            <label>备注:{{item.Remarks}}</label>
+          </div>
+          <!--<div class="col">-->
+            <!--<img class="css_audit_img" src="img/main_moretel@2x.png">-->
+          <!--</div>-->
+        </div>
+        <div style="height: 80px;" id="mainprocess_detailrow_{{item.index}}" ng-hide="{{item.rowvisible}}"><!--ng-hide="{{item.rowvisible}}"-->
+          <div class="row rowborder" ng-repeat="detail in item.detailArray" style="height: 100%">
+              <div class="col col-25 colborder">
+                <img src="img/main_morephoto@2x.png" height="40px"><br/>
+              </div>
+              <div class="col col-75">
+                <!--起始终止位置-->
+                <div class="col_position" style="width: 50%">
+                  <label>{{detail.Key}}</label>
+                </div>
+                <div class="col_position" style="width: 50%">
+                  <label>{{detail.Value}}</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="task_button_img" style="height: 80px;top: -10px;">
+                  <img class="task_oper_img" src="img/main_moremessage@2x.png">
+                  <img class="task_oper_img" src="img/main_moretel@2x.png" ng-click="callphone('{{detail.Value2}}')">
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row css_audit_opr" ng-hide="{{item.commentvisible}}">
+          <button class="button button-small btnprocess" ng-click="gotocomment({{item.Id}})">
+            评价
+          </button>
+        </div>
+        <!--<div style="background-color: #ffffff;width: 100%;border-bottom: solid 1px #cccccc;text-align: center"-->
+             <!--ng-click="showtaskdetail('{{item.index}}')" ng-hide="{{item.rowvisible}}">-->
+          <!--<img id="mainprocess_detailimg_{{item.index}}" src="img/mytask_date_show@2x.png" height="10px">-->
+        <!--</div>-->
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>
